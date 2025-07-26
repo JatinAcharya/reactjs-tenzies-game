@@ -75,3 +75,7 @@ button{
   /* margin-top: 3rem; */
 }
 
+.die-button-active{
+  background-color: #59E391;
+}
+
