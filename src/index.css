@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, sans-serif;
+  font-family: Karla, sans-serif;
 }
 
 
@@ -27,7 +27,8 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .dice-section{
@@ -36,6 +37,12 @@ main {
   /* grid-template-columns: repeat(5, 4rem);
   grid-template-rows: repeat(2, 3rem); */
   gap: 1.25rem;
+}
+
+button{
+  cursor: pointer;
+  font-family: Karla, sans-serif;
+  border: none;
 }
 
 .die-button{
@@ -47,12 +54,24 @@ main {
   background-color: white;
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 15%);
   border-radius: 0.25rem;
-  border: none;
+  
   width: 3.125rem;
   height: 3.125rem;
-  cursor: pointer;
-  font-family: Inter, sans-serif;
+  
   /* padding: 2rem; */
 }
 
+.roll-button{
+  background-color: #5035FF;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  box-shadow: 0 3.2px 7.68px 0 rgb(0 0 0 / 18%);
+  border-radius: 0.25rem;
+  width: 5.75rem;
+  height: 2.25rem;
+  /* margin-top: 3rem; */
+}
 
