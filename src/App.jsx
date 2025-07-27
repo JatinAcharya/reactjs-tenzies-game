@@ -1,14 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 import Die from "./components/Die";
-// import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { nanoid } from "nanoid";
 
 function App() {
-  // [{value, isHeld}, {value, isHeld}]
-  const [dice, setDice] = useState(generateAllNewDice());
-  // const { width, height } = useWindowSize();
+  //added a callback function to initialization because earlier react was calling generateAllNewDice() on every render but by donig this way is will just call the generateAllNewDice() function the first time only
+  const [dice, setDice] = useState(() => generateAllNewDice()); //[{value, isHeld}, {value, isHeld}]
+
   function generateAllNewDice() {
     return new Array(10).fill(0).map(() => ({
       value: Math.ceil(Math.random() * 6),
@@ -33,15 +32,17 @@ function App() {
   });
 
   function handleDiceRoll(event) {
-    // if (gameWon) {
-    setDice((prevDice) => {
-      return prevDice.map((dieObj) => {
-        return !dieObj.isHeld
-          ? { ...dieObj, value: Math.ceil(Math.random() * 6) }
-          : dieObj;
+    if (!gameWon) {
+      setDice((prevDice) => {
+        return prevDice.map((dieObj) => {
+          return !dieObj.isHeld
+            ? { ...dieObj, value: Math.ceil(Math.random() * 6) }
+            : dieObj;
+        });
       });
-    });
-    // }
+    } else {
+      setDice(generateAllNewDice());
+    }
   }
 
   const gameWon =
